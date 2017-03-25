@@ -16,13 +16,12 @@ class CreatePilgrimInfosTable extends Migration
         Schema::create('pilgrim_infos', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->text('sponsor_id')
+            $table->text('sponsor_id');
             $table->text('firstname');
             $table->text('lastname');
             $table->text('address');
             $table->text('aptsuite');
             $table->text('city');
-            $table->text('state');
             $table->text('state');
             $table->text('zip');
             $table->text('phone');
