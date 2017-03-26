@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\v1\PilgrimInfoServiceProvider::class
+        App\Providers\v1\InformationServiceProvider::class
 
     ],
 

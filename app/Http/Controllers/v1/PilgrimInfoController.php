@@ -5,13 +5,13 @@ namespace App\Http\Controllers\v1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Services\v1\PilgrimInfoService;
+use App\Services\v1\InformationService;
 
 class PilgrimInfoController extends Controller
 {
-    protected $pilgrimInfo;
-    public function __construct(PilgrimInfoService $service) {
-        $this->pilgrimInfo = $service;
+    protected $informationService;
+    public function __construct(InformationService $service) {
+        $this->informationService = $service;
     }
 
     /**
@@ -21,7 +21,7 @@ class PilgrimInfoController extends Controller
      */
     public function index()
     {
-        $data = $this->pilgrimInfo->getPilgrims();
+        $data = $this->informationService->getPilgrims();
 
         return response()->json($data);
     }
@@ -55,7 +55,7 @@ class PilgrimInfoController extends Controller
      */
     public function show($id)
     {
-        $data = $this->pilgrimInfo->getPilgrimInfo($id);
+        $data = $this->informationService->getPilgrimInfo($id);
 
         return response()->json($data);
     }

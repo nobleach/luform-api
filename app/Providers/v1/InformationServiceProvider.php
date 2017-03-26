@@ -4,9 +4,7 @@ namespace App\Providers\v1;
 
 use Illuminate\Support\ServiceProvider;
 
-use App\Service\v1;
-
-class PilgrimInfoServiceProvider extends ServiceProvider
+class InformationServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -25,8 +23,6 @@ class PilgrimInfoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PilgrimInfoService::class, function($app) {
-            return new PilgrimInfoService();
-        });
+        //
     }
 }

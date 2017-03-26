@@ -3,11 +3,13 @@
 namespace App\Services\v1;
 
 use App\PilgrimInfo;
+use App\SponsorInfo;
+use App\PastorInfo;
 
 /**
  *
  */
-class PilgrimInfoService
+class InformationService
 {
     public function getPilgrims() {
         return PilgrimInfo::all();
