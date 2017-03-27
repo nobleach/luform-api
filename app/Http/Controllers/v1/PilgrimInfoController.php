@@ -44,7 +44,14 @@ class PilgrimInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $pilgrim = $this->informationService->createPilgrim($request);
+
+            return response()->json($pilgrim, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
+
     }
 
     /**
@@ -80,7 +87,7 @@ class PilgrimInfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
