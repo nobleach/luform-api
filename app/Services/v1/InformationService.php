@@ -51,6 +51,10 @@ class InformationService
     }
 
     public function getSponsors() {
-        return SponsorInfo::all();
+        return User::where('user_type', 'sponsor')->get();
+    }
+
+    public function getPilgrimsForSponsor($sponsor_id) {
+        return PigrimInfo::where('sponsor_id', $sponsor_id)->get();
     }
 }

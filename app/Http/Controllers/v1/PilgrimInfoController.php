@@ -33,7 +33,9 @@ class PilgrimInfoController extends Controller
      */
     public function create()
     {
-        //
+        $data = $this->informationService->getSponsors();
+
+        return response()->json($data);
     }
 
     /**
