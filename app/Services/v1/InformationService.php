@@ -60,6 +60,25 @@ class InformationService
 
     public fnction createSponsorInfo($req) {
         $sponsorInfo = new SponsorInfo();
+        $sponsorInfo->fullname = $req->input('fullname');
+        $sponsorInfo->address = $req->input('address');
+        $sponsorInfo->city = $req->input('city');
+        $sponsorInfo->state = $req->input('state');
+        $sponsorInfo->zip = $req->input('zip');
+        $sponsorInfo->email = $req->input('email');
+        $sponsorInfo->phone = $req->input('phone');
+        $sponsorInfo->bestcalltime = $req->input('bestcalltime');
+        $sponsorInfo->applicantfullname = $req->input('applicantfullname');
+        $sponsorInfo->baptizedlutheran = $req->input('baptizedlutheran');
+        $sponsorInfo->hadcursillospousediscussion = $req->input('hadcursillospousediscussion');
+        $sponsorInfo->bothspousesattending = $req->input('bothspousesattending');
+        $sponsorInfo->singlespouseexplanation = $req->input('singlespouseexplanation');
+        $sponsorInfo->cursilloattitude = $req->input('cursilloattitude');
+        $sponsorInfo->plantosupport = $req->input('plantosupport');
+        $sponsorInfo->otherapplicantinfo = $req->input('otherapplicantinfo');
+        $sponsorInfo->goodcandidatereason = $req->input('goodcandidatereason');
+        $sponsorInfo->applicantexpectations = $req->input('applicantexpectations');
+        $sponsorInfo->signed = $req->input('signed');
         $sponsorInfo.save();
 
         return $sponsorInfo;
