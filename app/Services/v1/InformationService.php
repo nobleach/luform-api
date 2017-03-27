@@ -5,6 +5,7 @@ namespace App\Services\v1;
 use App\PilgrimInfo;
 use App\SponsorInfo;
 use App\PastorInfo;
+use App\User;
 
 /**
  *
@@ -47,5 +48,9 @@ class InformationService
         $pilgrim->save();
 
         return $pilgrim;
+    }
+
+    public function getSponsors() {
+        return SponsorInfo::all();
     }
 }
