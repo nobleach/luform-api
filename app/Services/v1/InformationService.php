@@ -57,4 +57,11 @@ class InformationService
     public function getPilgrimsForSponsor($sponsor_id) {
         return PigrimInfo::where('sponsor_id', $sponsor_id)->get();
     }
+
+    public fnction createSponsorInfo($req) {
+        $sponsorInfo = new SponsorInfo();
+        $sponsorInfo.save();
+
+        return $sponsorInfo;
+    }
 }
