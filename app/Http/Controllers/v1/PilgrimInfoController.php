@@ -49,7 +49,7 @@ class PilgrimInfoController extends Controller
         try {
             $pilgrim = $this->informationService->createPilgrim($request);
 
-            return response()->json($pilgrim, 201);
+            return response()->json(['pilgrim' => $pilgrim, 'success' => true], 201);
         } catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }
