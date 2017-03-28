@@ -58,7 +58,7 @@ class InformationService
         return PigrimInfo::where('sponsor_id', $sponsor_id)->get();
     }
 
-    public fnction createSponsorInfo($req) {
+    public function createSponsorInfo($req) {
         $sponsorInfo = new SponsorInfo();
         $sponsorInfo->fullname = $req->input('fullname');
         $sponsorInfo->address = $req->input('address');
@@ -82,5 +82,23 @@ class InformationService
         $sponsorInfo.save();
 
         return $sponsorInfo;
+    }
+
+    public function createPastorInfo($req) {
+        $pastorInfo = new PastorInfo();
+        $pastorInfo->fullname = $req->input('fullname');
+        $pastorInfo->churchname = $req->input('churchname');
+        $pastorInfo->address = $req->input('address');
+        $pastorInfo->city = $req->input('city');
+        $pastorInfo->state = $req->input('state');
+        $pastorInfo->zip = $req->input('zip');
+        $pastorInfo->email = $req->input('email');
+        $pastorInfo->phone = $req->input('phone');
+        $pastorInfo->goodcandidateexplanation = $req->input('goodcandidateexplanation');
+        $pastorInfo->signed = $req->input('signed');
+        $pastorInfo->sponsorship_id = $req->input('sponsorship_id');
+        $pastornfo->save();
+
+        return $pastorInfo;
     }
 }

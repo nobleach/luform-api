@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Services\v1\InformationService;
 
-class SponsorInfoController extends Controller
+class PastorInfoController extends Controller
 {
     protected $informationService;
     public function __construct(InformationService $service) {
@@ -42,13 +42,7 @@ class SponsorInfoController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $sponsorInfo = $this->informationService->createSponsorInfo($request);
-
-            return response()->json(['sponsorInfo' => $sponsorInfo, 'success' => true], 201);
-        } catch (Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
-        }
+        //
     }
 
     /**

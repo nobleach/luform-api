@@ -53,7 +53,6 @@ class PilgrimInfoController extends Controller
         } catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }
-
     }
 
     /**
