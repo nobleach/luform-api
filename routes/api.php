@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/v1/pilgrims', v1\PilgrimInfoController::class);
+Route::resource('/v1/sponsors', v1\SponsorInfoController::class);

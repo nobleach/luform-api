@@ -50,8 +50,24 @@ class InformationService
         return $pilgrim;
     }
 
+    protected function filterSponsors($sponsor) {
+        $entry = [
+            'id' => $sponsor->id,
+            'firstname' => $sponsor->firstname,
+            'lastname' => $sponsor->lastname
+        ];
+
+        return $entry;
+    }
+
     public function getSponsors() {
-        return User::where('user_type', 'sponsor')->get();
+        return User::where('user_type', 'sponsor')->get()->map(function ($sponsor) {
+            return [
+                'id' => $sponsor->id,
+                'firstname' => $sponsor->firstname,
+                'lastname' => $sponsor->lastname
+            ];
+        });
     }
 
     public function getPilgrimsForSponsor($sponsor_id) {
@@ -79,6 +95,7 @@ class InformationService
         $sponsorInfo->goodcandidatereason = $req->input('goodcandidatereason');
         $sponsorInfo->applicantexpectations = $req->input('applicantexpectations');
         $sponsorInfo->signed = $req->input('signed');
+        $sponsorInfo->pilgrim_id = $req->input('pilgrim_id');
         $sponsorInfo.save();
 
         return $sponsorInfo;
