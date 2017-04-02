@@ -64,8 +64,7 @@ class InformationService
         return User::where('user_type', 'sponsor')->get()->map(function ($sponsor) {
             return [
                 'id' => $sponsor->id,
-                'firstname' => $sponsor->firstname,
-                'lastname' => $sponsor->lastname
+                'fullname' => $sponsor->firstname . ' ' . $sponsor->lastname,
             ];
         });
     }
