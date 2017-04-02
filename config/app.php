@@ -167,7 +167,10 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+        /*
+         * CORS middleware
+         */
+        Barryvdh\Cors\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
