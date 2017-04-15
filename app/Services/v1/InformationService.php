@@ -22,7 +22,7 @@ class InformationService
 
     public function createPilgrim($req) {
         $pilgrim = new PilgrimInfo();
-        $pilgrim->sponsor_id = $req->input('sponsor_id');
+        $pilgrim->sponsor_id = $req->input('sponsorid');
         $pilgrim->firstname = $req->input('firstname');
         $pilgrim->lastname = $req->input('lastname');
         $pilgrim->address = $req->input('address');
@@ -42,7 +42,7 @@ class InformationService
         $pilgrim->homechurchcity = $req->input('homechurchcity');
         $pilgrim->homechurchpastor = $req->input('homechurchpastor');
         $pilgrim->homechurchattendance = $req->input('homechurchattendance');
-        $pilgrim->specialneeds = $req->input('specialneeds');
+        $pilgrim->specialneeds = json_encode($req->input('specialneeds'));
         $pilgrim->reasontoattend = $req->input('reasontoattend');
         $pilgrim->signed = $req->input('signed');
         $pilgrim->save();
