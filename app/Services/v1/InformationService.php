@@ -69,8 +69,17 @@ class InformationService
         });
     }
 
-    public function getPilgrimsForSponsor($sponsor_id) {
-        return PigrimInfo::where('sponsor_id', $sponsor_id)->get();
+    public function getPilgrimsForSponsor($parameters) {
+        if(isset($parameters['sponsor_id'])) {
+            $sponsor_id = $parameters['sponsor_id'];
+            return PilgrimInfo::where('sponsor_id', $sponsor_id)->get()->map(function ($pilgrim) {
+                return [
+                    'id' => $pilgrim->id,
+                    'fullname' => $pilgrim->firstname . ' ' . $pilgrim->lastname,
+                    'email' => $pilgrim->email
+                ];
+            });
+        }
     }
 
     public function createSponsorInfo($req) {

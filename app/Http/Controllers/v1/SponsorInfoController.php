@@ -21,7 +21,10 @@ class SponsorInfoController extends Controller
      */
     public function index()
     {
-        //
+        $parameters = request()->input();
+        $data = $this->informationService->getPilgrimsForSponsor($parameters);
+
+        return response()->json($data);
     }
 
     /**
@@ -59,7 +62,6 @@ class SponsorInfoController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
