@@ -61,25 +61,32 @@ class InformationService
     }
 
     public function getSponsors() {
-        return User::where('user_type', 'sponsor')->get()->map(function ($sponsor) {
+        return SponsorInfo::all()->map(function ($sponsor) {
             return [
                 'id' => $sponsor->id,
-                'fullname' => $sponsor->firstname . ' ' . $sponsor->lastname,
+                'fullname' => $sponsor->fullname
             ];
         });
     }
 
-    public function getPilgrimsForSponsor($parameters) {
-        if(isset($parameters['sponsor_id'])) {
-            $sponsor_id = $parameters['sponsor_id'];
-            return PilgrimInfo::where('sponsor_id', $sponsor_id)->get()->map(function ($pilgrim) {
-                return [
-                    'id' => $pilgrim->id,
-                    'fullname' => $pilgrim->firstname . ' ' . $pilgrim->lastname,
-                    'email' => $pilgrim->email
-                ];
-            });
-        }
+    public function getSponsorPilgrimPairs() {
+        return SponsorInfo::all()->map(function ($sponsor) {
+            return [
+                'id' => $sponsor->id,
+                'fullname' => $sponsor->fullname,
+                'pilgrim_info' => $this->getPilgrimsForSponsor($sponsor->id)
+            ];
+        });
+    }
+
+    public function getPilgrimsForSponsor($sponsor_id) {
+        return PilgrimInfo::where('sponsor_id', $sponsor_id)->get()->map(function ($pilgrim) {
+            return [
+                'id' => $pilgrim->id,
+                'fullname' => $pilgrim->firstname . ' ' . $pilgrim->lastname,
+                'email' => $pilgrim->email
+            ];
+        });
     }
 
     public function createSponsorInfo($req) {

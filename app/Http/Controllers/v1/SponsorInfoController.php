@@ -21,8 +21,7 @@ class SponsorInfoController extends Controller
      */
     public function index()
     {
-        $parameters = request()->input();
-        $data = $this->informationService->getPilgrimsForSponsor($parameters);
+        $data = $this->informationService->getSponsorPilgrimPairs();
 
         return response()->json($data);
     }
