@@ -50,16 +50,6 @@ class InformationService
         return $pilgrim;
     }
 
-    protected function filterSponsors($sponsor) {
-        $entry = [
-            'id' => $sponsor->id,
-            'firstname' => $sponsor->firstname,
-            'lastname' => $sponsor->lastname
-        ];
-
-        return $entry;
-    }
-
     public function getSponsors() {
         return SponsorInfo::all()->map(function ($sponsor) {
             return [
@@ -75,16 +65,6 @@ class InformationService
                 'id' => $sponsor->id,
                 'fullname' => $sponsor->fullname,
                 'pilgrim_info' => $this->getPilgrimsForSponsor($sponsor->id)
-            ];
-        });
-    }
-
-    public function getPilgrimsForSponsor($sponsor_id) {
-        return PilgrimInfo::where('sponsor_id', $sponsor_id)->get()->map(function ($pilgrim) {
-            return [
-                'id' => $pilgrim->id,
-                'fullname' => $pilgrim->firstname . ' ' . $pilgrim->lastname,
-                'email' => $pilgrim->email
             ];
         });
     }
