@@ -95,7 +95,7 @@ class InformationService
         $sponsorInfo->applicantexpectations = $req->input('applicantexpectations');
         $sponsorInfo->signed = $req->input('signed');
         $sponsorInfo->pilgrim_id = $req->input('pilgrim_id');
-        $sponsorInfo.save();
+        $sponsorInfo->save();
 
         return $sponsorInfo;
     }
