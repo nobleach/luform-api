@@ -51,7 +51,7 @@ class InformationService
     }
 
     public function getPilgrimsForSponsor($sponsor_id) {
-        return PilgrimInfo::where('sponsor_id', $sponsor_id);
+        return PilgrimInfo::where('sponsor_id', $sponsor_id)->get();
     }
 
     public function getSponsors() {

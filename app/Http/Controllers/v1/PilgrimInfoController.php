@@ -12,6 +12,7 @@ class PilgrimInfoController extends Controller
     protected $informationService;
     public function __construct(InformationService $service) {
         $this->informationService = $service;
+        $this->middleware('auth:api', ['only' => ['index', 'show']]);
     }
 
     /**
